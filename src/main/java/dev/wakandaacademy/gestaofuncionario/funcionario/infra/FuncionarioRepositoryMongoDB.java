@@ -33,4 +33,11 @@ public class FuncionarioRepositoryMongoDB implements FuncionarioRepository {
         log.info("[finaliza] FuncionarioRepositoryMongoDB - buscaFuncionarioPorId");
         return funcionario;
     }
+
+    @Override
+    public void exclui(Funcionario funcionario) {
+        log.info("[inicia] FuncionarioRepositoryMongoDB - exclui");
+        funcionarioMongoRepository.delete(funcionario);
+        log.info("[finaliza] FuncionarioRepositoryMongoDB - exclui");
+    }
 }
