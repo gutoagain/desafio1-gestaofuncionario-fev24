@@ -1,6 +1,7 @@
 package dev.wakandaacademy.gestaofuncionario.funcionario.application.service;
 
 import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioCriadoResponse;
+import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioEditaRequest;
 import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioNovoRequest;
 import dev.wakandaacademy.gestaofuncionario.funcionario.application.repository.FuncionarioRepository;
 import dev.wakandaacademy.gestaofuncionario.funcionario.domain.Funcionario;
@@ -31,5 +32,11 @@ public class FuncionarioApplicationService implements FuncionarioService {
         Funcionario funcionario = funcionarioRepository.buscaFuncionarioPorId(idFuncionario);
         log.info("[finaliza] FuncionarioApplicationService - buscaFuncionarioPorId");
         return new FuncionarioCriadoResponse(funcionario);
+    }
+
+    @Override
+    public void editaFuncionario(UUID idFuncionario, FuncionarioEditaRequest funcionarioEdita) {
+        log.info("[inicia] FuncionarioApplicationService - editaFuncionario");
+        log.info("[finaliza] FuncionarioApplicationService - editaFuncionario");
     }
 }
