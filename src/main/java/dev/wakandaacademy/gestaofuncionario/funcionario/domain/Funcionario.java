@@ -1,5 +1,6 @@
 package dev.wakandaacademy.gestaofuncionario.funcionario.domain;
 
+import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioEditaRequest;
 import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioNovoRequest;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -27,7 +28,6 @@ public class Funcionario {
     private String cargo;
     @NotBlank
     private Integer salario;
-    @Indexed(unique = true)
     private String telefone;
     private String endereco;
 
@@ -40,4 +40,23 @@ public class Funcionario {
         this.endereco = funcionarioNovo.getEndereco();
     }
 
+    public void altera(FuncionarioEditaRequest funcionarioEdita) {
+        log.info("[inicia] Funcionario - altera");
+        if (funcionarioEdita.getNomeCompleto() != null) {
+            this.nomeCompleto = funcionarioEdita.getNomeCompleto();
+        }
+        if (funcionarioEdita.getCargo() != null) {
+            this.cargo = funcionarioEdita.getCargo();
+        }
+        if (funcionarioEdita.getSalario() != null) {
+            this.salario = funcionarioEdita.getSalario();
+        }
+        if (funcionarioEdita.getTelefone() != null) {
+            this.telefone = funcionarioEdita.getTelefone();
+        }
+        if (funcionarioEdita.getEndereco() != null) {
+            this.endereco = funcionarioEdita.getEndereco();
+        }
+        log.info("[finaliza] Funcionario - altera");
+    }
 }
