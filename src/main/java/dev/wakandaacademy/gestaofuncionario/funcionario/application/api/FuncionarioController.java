@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @Validated
 @Log4j2
@@ -20,5 +22,15 @@ public class FuncionarioController implements FuncionarioAPI {
                 .criaNovoFuncionario(funcionarioNovo);
         log.info("[finaliza] FuncionarioController - postNovoFuncionario");
         return funcionarioCriado;
+    }
+
+    @Override
+    public FuncionarioCriadoResponse buscaFuncionarioPorId(UUID idFuncionario) {
+        log.info("[inicia] FuncionarioController - buscaFuncionarioPorId");
+        log.info("[idFuncionario] {}", idFuncionario);
+        FuncionarioCriadoResponse buscaFuncionario = funcionarioAppplicationService
+                .buscaFuncionarioPorId(idFuncionario);
+        log.info("[finaliza] FuncionarioController - buscaFuncionarioPorId");
+        return buscaFuncionario;
     }
 }
