@@ -9,5 +9,5 @@ import javax.validation.Valid;
 public interface FuncionarioAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    FuncionarioCriadoResponse postNovoFuncionario(@RequestBody @Valid FuncionarioNovoRequest request);
+    FuncionarioCriadoResponse postNovoFuncionario(@RequestBody @Valid FuncionarioNovoRequest funcionarioNovo);
 }
