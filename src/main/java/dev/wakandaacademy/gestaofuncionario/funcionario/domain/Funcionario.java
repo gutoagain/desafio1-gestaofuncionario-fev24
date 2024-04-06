@@ -27,7 +27,6 @@ public class Funcionario {
     private String cargo;
     @NotBlank
     private Integer salario;
-    @Indexed(unique = true)
     private String telefone;
     private String endereco;
 

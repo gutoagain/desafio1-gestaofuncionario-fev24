@@ -15,4 +15,10 @@ public interface FuncionarioAPI {
     @GetMapping("/{idFuncionario}")
     @ResponseStatus(code = HttpStatus.OK)
     FuncionarioCriadoResponse buscaFuncionarioPorId(@PathVariable UUID idFuncionario);
+
+    @PatchMapping("editaFuncionario/{idFuncionario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void editaFuncionario(@PathVariable UUID idFuncionario,
+                          @RequestBody @Valid FuncionarioEditaRequest funcionarioEdita);
+
 }

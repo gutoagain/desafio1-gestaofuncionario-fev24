@@ -33,4 +33,10 @@ public class FuncionarioController implements FuncionarioAPI {
         log.info("[finaliza] FuncionarioController - buscaFuncionarioPorId");
         return buscaFuncionario;
     }
+
+    @Override
+    public void editaFuncionario(UUID idFuncionario, FuncionarioEditaRequest funcionarioEdita) {
+        log.info("[inicia] FuncionarioController - editaFuncionario");
+        log.info("[finaliza] FuncionarioController - editaFuncionario");
+    }
 }
