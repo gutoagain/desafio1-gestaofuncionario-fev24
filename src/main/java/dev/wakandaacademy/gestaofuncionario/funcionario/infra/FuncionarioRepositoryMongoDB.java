@@ -10,11 +10,13 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 @Log4j2
 public class FuncionarioRepositoryMongoDB implements FuncionarioRepository {
+    private final FuncionarioMongoRepository funcionarioMongoRepository;
 
     @Override
     public Funcionario salva(Funcionario funcionario) {
         log.info("[inicia] FuncionarioRepositoryMongoDB - salva");
+        Funcionario novoFuncionario = funcionarioMongoRepository.save(funcionario);
         log.info("[finaliza] FuncionarioRepositoryMongoDB - salva");
-        return null;
+        return novoFuncionario;
     }
 }
