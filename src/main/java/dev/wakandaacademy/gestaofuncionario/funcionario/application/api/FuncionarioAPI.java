@@ -21,4 +21,7 @@ public interface FuncionarioAPI {
     void editaFuncionario(@PathVariable UUID idFuncionario,
                           @RequestBody @Valid FuncionarioEditaRequest funcionarioEdita);
 
+    @DeleteMapping("excluiFuncionario/{idFuncionario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void excluiFuncionario(@PathVariable UUID idFuncionario);
 }
