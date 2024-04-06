@@ -40,4 +40,10 @@ public class FuncionarioController implements FuncionarioAPI {
         funcionarioAppplicationService.editaFuncionario(idFuncionario, funcionarioEdita);
         log.info("[finaliza] FuncionarioController - editaFuncionario");
     }
+
+    @Override
+    public void excluiFuncionario(UUID idFuncionario) {
+        log.info("[inicia] FuncionarioController - excluiFuncionario");
+        log.info("[finaliza] FuncionarioController - excluiFuncionario");
+    }
 }
