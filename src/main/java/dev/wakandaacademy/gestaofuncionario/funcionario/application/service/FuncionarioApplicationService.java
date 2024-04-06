@@ -5,8 +5,10 @@ import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.Funciona
 import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioNovoRequest;
 import dev.wakandaacademy.gestaofuncionario.funcionario.application.repository.FuncionarioRepository;
 import dev.wakandaacademy.gestaofuncionario.funcionario.domain.Funcionario;
+import dev.wakandaacademy.gestaofuncionario.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import javax.validation.Valid;
 import java.util.UUID;
@@ -37,6 +39,9 @@ public class FuncionarioApplicationService implements FuncionarioService {
     @Override
     public void editaFuncionario(UUID idFuncionario, FuncionarioEditaRequest funcionarioEdita) {
         log.info("[inicia] FuncionarioApplicationService - editaFuncionario");
+        Funcionario funcionario = funcionarioRepository.buscaFuncionarioPorId(idFuncionario);
+        funcionario.altera(funcionarioEdita);
+        funcionarioRepository.salva(funcionario);
         log.info("[finaliza] FuncionarioApplicationService - editaFuncionario");
     }
 }
