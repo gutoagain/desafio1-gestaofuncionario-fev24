@@ -15,7 +15,6 @@ public class FuncionarioNovoRequest {
     private final Integer salario;
     @NotBlank
     @Size(message = "O telefone deve ter no máximo 15 caracteres", max = 15)
-    @Pattern(regexp = "\\+?\\d{1,15}", message = "Telefone inválido")
     private String telefone;
     private final String endereco;
 }
