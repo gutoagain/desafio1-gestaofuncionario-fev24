@@ -1,5 +1,6 @@
 package dev.wakandaacademy.gestaofuncionario.funcionario.domain;
 
+import dev.wakandaacademy.gestaofuncionario.funcionario.application.api.FuncionarioNovoRequest;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.annotation.Id;
@@ -29,5 +30,14 @@ public class Funcionario {
     @Indexed(unique = true)
     private String telefone;
     private String endereco;
+
+    public Funcionario(FuncionarioNovoRequest funcionarioNovo) {
+        this.idFuncionario = UUID.randomUUID();
+        this.nomeCompleto = funcionarioNovo.getNomeCompleto();
+        this.cargo = funcionarioNovo.getCargo();
+        this.salario = funcionarioNovo.getSalario();
+        this.telefone = funcionarioNovo.getTelefone();
+        this.endereco = funcionarioNovo.getEndereco();
+    }
 
 }
