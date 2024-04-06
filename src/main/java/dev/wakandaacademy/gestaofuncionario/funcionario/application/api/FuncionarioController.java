@@ -44,6 +44,7 @@ public class FuncionarioController implements FuncionarioAPI {
     @Override
     public void excluiFuncionario(UUID idFuncionario) {
         log.info("[inicia] FuncionarioController - excluiFuncionario");
+        funcionarioAppplicationService.excluiFuncionario(idFuncionario);
         log.info("[finaliza] FuncionarioController - excluiFuncionario");
     }
 }
