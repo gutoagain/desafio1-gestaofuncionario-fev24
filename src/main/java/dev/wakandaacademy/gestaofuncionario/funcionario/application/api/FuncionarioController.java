@@ -31,6 +31,6 @@ public class FuncionarioController implements FuncionarioAPI {
         FuncionarioCriadoResponse buscaFuncionario = funcionarioAppplicationService
                 .buscaFuncionarioPorId(idFuncionario);
         log.info("[finaliza] FuncionarioController - buscaFuncionarioPorId");
-        return null;
+        return buscaFuncionario;
     }
 }

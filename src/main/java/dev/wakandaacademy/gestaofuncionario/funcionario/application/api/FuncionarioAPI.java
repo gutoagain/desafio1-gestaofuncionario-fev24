@@ -6,7 +6,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/v1/funcionarios")
+@RequestMapping(value = "/public/v1/funcionario")
 public interface FuncionarioAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
